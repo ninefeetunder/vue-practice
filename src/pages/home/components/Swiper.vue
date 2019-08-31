@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" ref="mySwiper">
+    <swiper :options="swiperOption">
         <swiper-slide v-for="item in swiperList" :key="item.id">
           <img class="swiper-img" :src="item.imgUrl" alt="">
         </swiper-slide>
@@ -33,12 +33,12 @@ export default {
 
 <style lang="stylus" scoped>
 .wrapper >>> .swiper-pagination-bullet-active // >>> 实现穿透效果，无视scoped的效果
-  background-color: #fff;
+  background-color: #fff
 .wrapper
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  padding-bottom: 31.25%;
+  overflow: hidden
+  width: 100%
+  height: 0
+  padding-bottom: 26.7%
   .swiper-img
-    width: 100%;
+    width: 100%
 </style>
