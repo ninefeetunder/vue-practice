@@ -2,7 +2,7 @@
   <div class="recommend">
     <div class="title">猜你喜欢</div>
     <ul class="items">
-      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item in list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <div class="item-title">{{item.title}}</div>
@@ -20,38 +20,8 @@
 
 <script>
 export default {
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          comment: '259322',
-          price: '399',
-          address: '浦东新区',
-          desc: '全球最大的迪士尼城堡~'
-        },
-        {
-          id: '0002',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          comment: '259322',
-          price: '399',
-          address: '浦东新区',
-          desc: '全球最大的迪士尼城堡~'
-        },
-        {
-          id: '0003',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          comment: '259322',
-          price: '399',
-          address: '浦东新区',
-          desc: '全球最大的迪士尼城堡~'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
