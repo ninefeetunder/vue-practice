@@ -1,11 +1,23 @@
 <template>
   <div>
     <div class="search">
-      <input class="search-input" v-model="keyword" type="text" placeholder="请输入城市名或拼音">
+      <input
+        class="search-input"
+        v-model="keyword"
+        type="text"
+        placeholder="请输入城市名或拼音"
+      >
     </div>
     <div class="search-list" ref="searchlist" v-show="this.keyword">
       <ul>
-        <li class="search-list-item border-bottom" v-for="item in list" :key="item.id">{{item.name}}</li>
+        <li
+          class="search-list-item border-bottom"
+          v-for="item in list"
+          :key="item.id"
+          @click="handleChangeCity(item.name)"
+        >
+          {{item.name}}
+        </li>
         <li v-show="noRegion" class="search-list-item border-bottom">没有此地区</li>
       </ul>
     </div>
@@ -14,6 +26,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -53,6 +66,13 @@ export default {
         }
       }, 100)
     }
+  },
+  methods: {
+    handleChangeCity (city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   }
 }
 </script>

@@ -5,6 +5,7 @@ import App from './App'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import router from './router'
 import fastClick from 'fastclick'
+import store from './store/index'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
@@ -14,8 +15,10 @@ Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 /* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   router,
-  render: c => c(App)
+  render: c => c(App),
+  store
 })
