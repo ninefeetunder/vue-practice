@@ -1,8 +1,16 @@
 <template>
   <div class="recommend">
-    <div class="title">猜你喜欢</div>
+    <div class="title">
+      <span class="iconfont love-icon">&#xe85c;</span>猜你喜欢
+    </div>
     <ul class="items">
-      <li class="item border-bottom" v-for="item in list" :key="item.id">
+      <router-link
+        :to="'/detail/' + item.id"
+        tag="li"
+        class="item border-bottom"
+        v-for="item in list"
+        :key="item.id"
+      >
         <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <div class="item-title">{{item.title}}</div>
@@ -13,7 +21,7 @@
           </div>
           <div class="item-desc">{{item.desc}}</div>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -32,8 +40,10 @@ export default {
     background-color: #fff
     margin-top: .3rem
     .title
-      padding: .2rem 0
+      padding: .2rem
       font-size: .3rem
+      .love-icon
+        color: red
     .items
       margin-left: .24rem
       .item
