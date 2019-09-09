@@ -2,6 +2,7 @@
   <div>
     <detail-banner></detail-banner>
     <detail-header></detail-header>
+    <detail-card></detail-card>
     <div class="content">
       <detail-list :list="list"></detail-list>
     </div>
@@ -12,11 +13,13 @@
 import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
 import DetailList from './components/List'
+import DetailCard from './components/Card'
 export default {
   components: {
     DetailBanner,
     DetailHeader,
-    DetailList
+    DetailList,
+    DetailCard
   },
   data () {
     return {
