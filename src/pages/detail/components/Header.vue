@@ -27,7 +27,6 @@ export default {
       this.$router.go(-1)
     },
     handleScroll () {
-      console.log('scroll')
       const top = document.documentElement.scrollTop
       if (top > 42) {
         this.showAbs = false
