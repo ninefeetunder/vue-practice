@@ -42,7 +42,6 @@ export default {
   },
   activated () {
     window.addEventListener('scroll', this.handleScroll)
-    document.documentElement.scrollTo(0, 0)
   },
   deactivated () {
     window.removeEventListener('scroll', this.handleScroll)
