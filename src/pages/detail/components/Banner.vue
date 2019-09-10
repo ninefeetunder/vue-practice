@@ -3,14 +3,14 @@
     <div class="banner" @click="handleBannerClick">
       <img
         class="banner-img"
-        src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg"
+        :src="img"
         alt=""
       >
       <div class="banner-info">
-        <div class="banner-title">上海迪士尼乐园</div>
+        <div class="banner-title">{{sightName}}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe6df;</span>
-          93
+          {{this.imgs.length}}
         </div>
       </div>
     </div>
@@ -23,10 +23,6 @@ import CommonGallery from 'common/gallery/Gallery.vue'
 export default {
   data () {
     return {
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1905/2a/2abf1aea5eecc2f6a3.img.jpg_r_800x800_52ca584c.jpg',
-        'http://img1.qunarzz.com/sight/p0/1905/28/28622a6b07caa0faa3.img.jpg_r_800x800_d54721f6.jpg'
-      ],
       showGallery: false
     }
   },
@@ -40,6 +36,11 @@ export default {
   },
   components: {
     CommonGallery
+  },
+  props: {
+    sightName: String,
+    img: String,
+    imgs: Array
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <detail-banner></detail-banner>
+    <detail-banner :sight-name="sightName" :img="img" :imgs="imgs"></detail-banner>
     <detail-header></detail-header>
     <detail-card></detail-card>
     <detail-recommend></detail-recommend>
@@ -16,7 +16,9 @@ import DetailHeader from './components/Header'
 import DetailList from './components/List'
 import DetailCard from './components/Card'
 import DetailRecommend from './components/Recommend'
+import axios from 'axios'
 export default {
+  name: 'Detail',
   components: {
     DetailBanner,
     DetailHeader,
@@ -26,25 +28,32 @@ export default {
   },
   data () {
     return {
-      list: [
-        {
-          title: '成人票',
-          children: [
-            {
-              title: '成人一馆联票'
-            },
-            {
-              title: '成人三馆联票'
-            }
-          ]
-        },
-        {
-          title: '儿童票'
-        },
-        {
-          title: '特惠票'
+      sightName: '',
+      img: '',
+      imgs: [],
+      list: []
+    }
+  },
+  mounted () {
+    this.getDetailInfo()
+  },
+  methods: {
+    getDetailInfo () {
+      axios.get('api/detail.json', {
+        params: {
+          id: this.$route.params.id
         }
-      ]
+      }).then(this.handleInfoSucc)
+    },
+    handleInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        res = res.data
+        this.sightName = res.sightName
+        this.img = res.bannerImg
+        this.imgs = res.gallaryImgs
+        this.list = res.categoryList
+      }
     }
   }
 }
