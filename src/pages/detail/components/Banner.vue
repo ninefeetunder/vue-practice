@@ -14,12 +14,20 @@
         </div>
       </div>
     </div>
-    <common-gallery :imgs="imgs" @close="handleGalleryClose" v-show="showGallery"></common-gallery>
+    <fade-animation>
+      <common-gallery
+        :imgs="imgs"
+        @close="handleGalleryClose"
+        v-show="showGallery"
+      >
+      </common-gallery>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallery from 'common/gallery/Gallery.vue'
+import FadeAnimation from 'common/fade/FadeAnimation.vue'
 export default {
   data () {
     return {
@@ -35,7 +43,8 @@ export default {
     }
   },
   components: {
-    CommonGallery
+    CommonGallery,
+    FadeAnimation
   },
   props: {
     sightName: String,
